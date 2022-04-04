@@ -66,7 +66,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#modifying-the-search-settings">Modifying the search settings</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#specifying-different-input-and-output-folders">Specifying different input and output folders</a>
+    <li class="toctree-l2"><a class="reference internal" href="#specifying-different-a-input-folders-andor-reference-library">Specifying different a input folders and/or reference library</a>
     </li>
     </ul>
                     </li>
@@ -123,15 +123,26 @@
             <div class="section">
               
                 <h1 id="additional-settings">Additional settings</h1>
-<p>Tool 4 has five parameters you can change. Two modify stringency: <code>identity</code> and <code>eValue</code>, and the others alter where the Tool looks for the input and output data. </p>
+<p>Tool 4 has four parameters you can modify. To modify stringency use <code>identity</code> and/or <code>eValue</code>. To alter where the Tool looks for the input and output data use . </p>
 <h2 id="modifying-the-search-settings">Modifying the search settings</h2>
+<p>Tool 4 has two additional settings that you can change: <code>identity</code> and <code>eValue</code> in the command line. </p>
 <ul>
 <li>Identity is used to specify the minimum DNA identity (default <code>90</code>).  </li>
 <li>eValue is used to specifiy the minimum DNA eValue (default <code>1e-8</code>). </li>
 </ul>
 
-<h2 id="specifying-different-input-and-output-folders">Specifying different input and output folders</h2>
-<p>Use the following options to XXXX</p>
+<p>You can specify these settings using:</p>
+<pre><code>--identity 'yy'
+--eValue 'zz'
+</code></pre>
+<p>The command will look like this: </p>
+<pre><code>nextflow run tool_4.nf --identity 'yy' --eValue 'zz'
+</code></pre>
+<p>Substitute <code>yy</code> +/ <code>zz</code> with the actual parameter you wish to use. For example, </p>
+<pre><code>nextflow run tool_4.nf --identity '80' --eValue '1e-7'
+</code></pre>
+<h2 id="specifying-different-a-input-folders-andor-reference-library">Specifying different a input folders and/or reference library</h2>
+<p>Additionally, in the command line you can also specify an alternative input directory, and a alternative reference library.</p>
 <table>
 <thead>
 <tr>
@@ -148,10 +159,6 @@
 <td><code>--backgroundGenomesDir ‘nnn’</code></td>
 <td align="left"><code>vol-genomics/genome_tools/reference_libraries/XXXXXXX</code></td>
 </tr>
-<tr>
-<td><code>--output ‘ooo’</code></td>
-<td align="left"><code>vol-genomics/genome_tools/Tool_4/output_tool4/</code></td>
-</tr>
 </tbody>
 </table>
 <div class="admonition example">
@@ -165,11 +172,6 @@
 <p>If you are running the same script with altered parammeters you can add <code>-resume</code> to your command. The analysis will be quicker since it will use cached data. In this case it will used cached data for the first two steps (<code>predictORFs</code> and <code>makeBLASTDatabase</code>). </p>
 </div>
 <hr />
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Check if output directory is made automatically.</p>
-<p>Check the paths work</p>
-</div>
               
             </div>
           </div>
